@@ -90,9 +90,9 @@ var app = {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.encode(scanner.Encode.TEXT_TYPE, url, function(success) {
-            alert("encode success: " + success);
+            //alert("encode success: " + success);
           }, function(fail) {
-            alert("encoding failed: " + fail);
+           // alert("encoding failed: " + fail);
           }
         );
 

@@ -39,22 +39,29 @@ function sendToBiller()
 
                        success: function (data) 
                        {
-                               alert('Thank you for shopping with Virtual Cart. '+data);
+                            //alert('Thank you for shopping with Virtual Cart. '+data);
+						 // alert('post sent');
+							showQRCodeAlert();
+							var urlForBiller = getQueryStringForBiller(server_url,cartForServer.cartID);
+						//  alert(urlForBiller);
+							
+							app.encode(urlForBiller);
                        },
                        error: function ()
                        {
                                alert('Sorry! there seems to be a problem with our servers. Please try paying after some time.');
                        }        
                });
-			   alert('post sent');
-			   var urlForBiller = getQueryStringForBiller(server_url,cartForServer.cartID);
-			   alert(urlForBiller);
-			   app.encode(urlForBiller);
 }
 
 function getQueryStringForBiller (url,cartId)
 {	
 return  url+"?method=getBillToPrint&cartID="+cartId;	
+}
+
+function showQRCodeAlert()
+{
+	alert('Provide the following QR Code at the billing counter.');
 }
 
 function cartS( cartID,  itemQuantity, prodarr, total)
