@@ -18,6 +18,8 @@
 	<script src="js\funcs_pageone.js"></script>
 	<script src="js\funcs_pagetwo.js"></script>
 	<script src="js\spin.js"></script>
+	<script src="js\jquery.confirm.js"></script>
+	<script src="js\jquery.confirm.min.js"></script>
 
 	
 </head>
@@ -39,7 +41,7 @@
 		<div class="ui-grid-b">
 			<div class="ui-block-a"><a id="btnExpand"  class="ui-btn ui-corner-all collapseExpand">Expand All</a></div>
 			<div class="ui-block-b"><a id="btnCollapse" class="ui-btn ui-corner-all collapseExpand">Collapse All</a></div>
-			<div class="ui-block-c"><a id="btnDelete" class="ui-btn ui-corner-all " onClick="deleteAll()">Delete All</a></div>
+			<div class="ui-block-c"><a id="btnDelete" class="ui-btn ui-corner-all" onclick="deleteAll()">Delete All</a></div>
 		</div>
 	</div>
 	
@@ -77,6 +79,7 @@ var cart_top=0;
 var appUniqueKey="VC";
 var separator=",";
 var server_url;
+
 </script>
 
 <!-- PAGE TWO -->

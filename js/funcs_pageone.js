@@ -145,7 +145,7 @@ function getDetails(tempprod)
 	}
 		catch(err)
 	{
-		//alert('caught error' + err);
+		alert(data);
 	}
 	});
 	
@@ -246,7 +246,7 @@ function add_object(tempprod)
 	addToDisplay(tempprod);
 	
 	updateAllConstantsDisplay();
-	disableEnablePayLink();
+	disableEnablePayLink();                               
 	wrapperToEmptyCartDispaly();
 }
 
@@ -312,7 +312,7 @@ function firstFunction()
 	cartID = parseInt(Math.random() * 1000000);
 	disableEnablePayLink();
 	wrapperToEmptyCartDispaly();
-
+//alert(cartID);
 	updateAllConstantsDisplay();
 }
 

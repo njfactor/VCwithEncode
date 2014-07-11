@@ -1,17 +1,17 @@
 
 $(document).on("pagebeforeshow","#pagetwo",function(event,data)
 {
-	$("#billDetails").text('');
-	$('<div class="ui-block-a " style="width:40%;"  ><h3 style="text-align:left;">Product</h3></div><div class="ui-block-b " style="width:10%;" ><h3 style="text-align:right; ">Qty</h3></div><div class="ui-block-c " style="width:25%;" ><h3 style="text-align:right; ">Price</h3></div><div class="ui-block-d " style="width:25%;"><h3 style="text-align:right; ">S.Total</h3></div></div>').appendTo("#billDetails");
-	
-	$("#grandTotalPagetwo").text(total_price.toFixed(2));
-	
-	for(i = 0;i<cart_top;i++)
-	{
-		addBillToDisplay(i);
-		total_Discount+=(cart[i].mrp - cart[i].mallPrice)*cart[i].qty;
-	}
-	$("#totalDiscountPagetwo").text(total_Discount.toFixed(2));
+		$("#billDetails").text('');
+		$('<div class="ui-block-a " style="width:40%;"  ><h3 style="text-align:left;">Product</h3></div><div class="ui-block-b " style="width:10%;" ><h3 style="text-align:right; ">Qty</h3></div><div class="ui-block-c " style="width:25%;" ><h3 style="text-align:right; ">Price</h3></div><div class="ui-block-d " style="width:25%;"><h3 style="text-align:right; ">S.Total</h3></div></div>').appendTo("#billDetails");
+		
+		$("#grandTotalPagetwo").text(total_price.toFixed(2));
+		
+		for(i = 0;i<cart_top;i++)
+		{
+			addBillToDisplay(i);
+			total_Discount+=(cart[i].mrp - cart[i].mallPrice)*cart[i].qty;
+		}
+		$("#totalDiscountPagetwo").text(total_Discount.toFixed(2));
 });
 
 
@@ -39,13 +39,14 @@ function sendToBiller()
 
                        success: function (data) 
                        {
-                            //alert('Thank you for shopping with Virtual Cart. '+data);
+                           
 						 // alert('post sent');
 							showQRCodeAlert();
-							var urlForBiller = getQueryStringForBiller(server_url,cartForServer.cartID);
+/* 							var urlForBiller = getQueryStringForBiller(server_url,cartForServer.cartID);
 						//  alert(urlForBiller);
 							
-							app.encode(urlForBiller);
+							app.encode(urlForBiller); */
+							//alert('Thank you for shopping with Virtual Cart. ' +data);
                        },
                        error: function ()
                        {
@@ -61,7 +62,7 @@ return  url+"?method=getBillToPrint&cartID="+cartId;
 
 function showQRCodeAlert()
 {
-	alert('Provide the following QR Code at the billing counter.');
+	confirm('Provide the following CartID: '+ cartForServer.cartID + ' at the billing counter.');
 }
 
 function cartS( cartID,  itemQuantity, prodarr, total)
