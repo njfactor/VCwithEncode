@@ -29,7 +29,7 @@ function sendToBiller()
                var finurl=server_url;
                dat= JSON.stringify(cartForServer);
                
-			   if(confirm('Provide the following CartID: '+ cartForServer.cartID + ' at the billing counter.'));
+			   if(confirm('Provide the following QR Code or this CartID: '+ cartForServer.cartID + ' at the billing counter.'));
 				{
                 $.ajax
                ({
@@ -46,7 +46,7 @@ function sendToBiller()
  							var urlForBiller = getQueryStringForBiller(server_url,cartForServer.cartID);
 						//  alert(urlForBiller);
 							
-							app.encode(urlForBiller); */
+							app.encode(urlForBiller); 
 							alert('Thank you for shopping with Virtual Cart. ' +data);
                        },
                        error: function ()
