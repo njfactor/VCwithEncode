@@ -24,12 +24,13 @@ function addBillToDisplay(index)
 function sendToBiller()
 {
                event.preventDefault();
-               
+
                cartForServer = new cartS(cartID,cart_top,cart,total_price);
                var finurl=server_url;
                dat= JSON.stringify(cartForServer);
-
-	   
+               
+			   if(confirm('Provide the following CartID: '+ cartForServer.cartID + ' at the billing counter.'));
+				{
                 $.ajax
                ({
                        type: "POST",
@@ -41,18 +42,19 @@ function sendToBiller()
                        {
                            
 						 // alert('post sent');
-							showQRCodeAlert();
-/* 							var urlForBiller = getQueryStringForBiller(server_url,cartForServer.cartID);
+							
+ 							var urlForBiller = getQueryStringForBiller(server_url,cartForServer.cartID);
 						//  alert(urlForBiller);
 							
 							app.encode(urlForBiller); */
-							//alert('Thank you for shopping with Virtual Cart. ' +data);
+							alert('Thank you for shopping with Virtual Cart. ' +data);
                        },
                        error: function ()
                        {
                                alert('Sorry! there seems to be a problem with our servers. Please try paying after some time.');
                        }        
                });
+			   }
 }
 
 function getQueryStringForBiller (url,cartId)
